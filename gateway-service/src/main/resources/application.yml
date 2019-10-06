@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: gateway
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+zuul:
+  host:
+    connect-timeout-millis: 5000
+    socket-timeout-millis: 60000
+  trace-request-body: true
+  routes:
+    department:
+      path: /department/**
+      serviceId: department
+    employee:
+      path: /employee/**
+      serviceId: employee
+    organization:
+      path: /organization/**
+      serviceId: organization
+
+ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 70000
+
+ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 70000
